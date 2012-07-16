@@ -3,7 +3,7 @@ use warnings;
 
 package Getopt::Long::Spec::Parser;
 {
-  $Getopt::Long::Spec::Parser::VERSION = '0.001';
+  $Getopt::Long::Spec::Parser::VERSION = '0.002';
 }
 
 # ABSTRACT: Parse a Getopt::Long option spec into a set of attributes
@@ -71,7 +71,7 @@ our $NAME_SPEC_QR = qr{
 sub _process_name_spec {
     my ( $self, $spec ) = @_;
 
-    croak "Could not parse the name part of the option spec " . "[$CUR_OPT_SPEC]."
+    croak "Could not parse the name part of the option spec [$CUR_OPT_SPEC]."
         if $spec !~ $NAME_SPEC_QR;
 
     my %params;
@@ -240,7 +240,7 @@ Getopt::Long::Spec::Parser - Parse a Getopt::Long option spec into a set of attr
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
@@ -250,15 +250,15 @@ describes... if that makes any sense at all...
 
 Perhaps a little code snippet.
 
-    use Getopt::Long::SpecParser;
+    use Getopt::Long::Spec::Parser;
 
-    my $parser = Getopt::Long::SpecParser->new();
+    my $parser = Getopt::Long::Spec::Parser->new();
     my %spec_info = $parser->parse( 'foo|f=s@{1,5}' );
 
     # OR...
 
     my %spec_info =
-        Getopt::Long::SpecParser->parse( 'foo|f=s@{1,5}' );
+        Getopt::Long::Spec::Parser->parse( 'foo|f=s@{1,5}' );
 
 %spec_info should be a hash containing info about the parsed Getopt::Long
 option specification
@@ -269,9 +269,9 @@ option specification
 
 construct a new parser.
 
-    my $parser = Getopt::Long::SpecParser->new();
+    my $parser = Getopt::Long::Spec::Parser->new();
     # OR...
-    my $parser = Getopt::Long::SpecParser->new(
+    my $parser = Getopt::Long::Spec::Parser->new(
         debug => 1,
     );
 
@@ -281,7 +281,7 @@ parse an option specification
 
     my %spec_info = $parser->parse( 'foo' );
     # OR...
-    my %spec_info = Getopt::Long::SpecParser->parse( 'foo' );
+    my %spec_info = Getopt::Long::Spec::Parser->parse( 'foo' );
 
 return the info parsed from the spec as a hash, or hashref,
 depending on context.

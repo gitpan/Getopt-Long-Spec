@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Getopt::Long::Spec;
 {
-  $Getopt::Long::Spec::VERSION = '0.001';
+  $Getopt::Long::Spec::VERSION = '0.002';
 }
 # ABSTRACT: translate Getopt::Long specs into a hash of attributes, and back again
 use Getopt::Long::Spec::Builder;
@@ -31,7 +31,7 @@ Getopt::Long::Spec - translate Getopt::Long specs into a hash of attributes, and
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
@@ -74,7 +74,7 @@ Simple constructor, takes no options.
 =head2 parse
 
 Given a valid L<Getopt::Long>
-L<option specification|Getopt::Long/Summary_of_Option_Specifications>,
+L<option specification|Getopt::Long/Summary-of-Option-Specifications>,
 this method returns a hash describing the spec (see synopsis, above).
 
 This can be called as an object or class method. It will throw an exception

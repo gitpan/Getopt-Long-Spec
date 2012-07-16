@@ -3,7 +3,7 @@ use warnings;
 
 package Getopt::Long::Spec::Builder;
 {
-  $Getopt::Long::Spec::Builder::VERSION = '0.001';
+  $Getopt::Long::Spec::Builder::VERSION = '0.002';
 }
 
 # ABSTRACT: Build a Getopt::Long option spec from a set of attributes
@@ -127,17 +127,17 @@ Getopt::Long::Spec::Builder - Build a Getopt::Long option spec from a set of att
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
 This module builds a Getopt::Long option specification from a hash of option
-parameters as would be returned by Getopt::Long::SpecParser->parse($spec)
+parameters as would be returned by Getopt::Long::Spec::Parser->parse($spec)
 and/or Getopt::Nearly::Everything->opt($opt_name)->attrs().
 
 Here's an example of use:
 
-    use Getopt::Long::SpecBuilder;
+    use Getopt::Long::Spec::Builder;
 
     my %opt_attrs = (
         opt_type       => 'simple'
@@ -150,14 +150,14 @@ Here's an example of use:
         long           => 'foo',
     );
 
-    my $builder   = Getopt::Long::SpecBuilder->new();
+    my $builder   = Getopt::Long::Spec::Builder->new();
     my $spec      = $builder->build( %opt_attrs );
     print $spec;  # output: 'foo|f=s@{1,5}'
 
     # OR...
 
     my $spec =
-        Getopt::Long::SpecBuilder->build( %opt_attrs );
+        Getopt::Long::Spec::Builder->build( %opt_attrs );
 
 =head1 METHODS
 
@@ -175,6 +175,10 @@ and return the spec as a string
 =over 4
 
 =item * Getopt::Long - info on option specifications
+
+=item * Getopt::Long::Spec - parse and build GoL specifications
+
+=item * Getopt::Long::Spec::Parser - parse GoL specifications
 
 =item * Getopt::Nearly::Everything - the module for which this module was created
 
